@@ -1,16 +1,24 @@
 import React from 'react';
+import BirthdayListItem from './listBirthdayItem'
 
-const BirthdayList = (props) => {
-  const birthdays = props.birthdays.map((birthday) => {
+class BirthdayList extends React.Component {
+
+  render () {
+    const birthdays = this.props.birthdays.map((birthday, index) => {
+      return (
+        <BirthdayListItem birthday={birthday} key={index} removeBirthday={this.props.removeBirthday} />
+      );
+    })
+
     return (
-      <BirthdayList/>
-    );
-  })
-
-  return (
-    <ul className="birthdays__list">
-      {birthdays}
-    </ul>
-  )
+      <div className="birthdays__list">
+        <h2>All Birthdays</h2>
+        <ul>
+          {birthdays}
+        </ul>
+      </div>
+    )
+  }
 }
 
+export default BirthdayList;
