@@ -1,14 +1,19 @@
 import React from 'react';
 
-const TodaysBirthday = ({today}) => {
+const TodaysBirthday = (props) => {
 
-  if(!today) {
-    return <div className="birthday__none">No birthday today...</div>
-  }
+  const todaysBirthday = props.today.map((today, index) => {
+    return (
+      <div key={index}>{today.name} - {today.birthday} </div>
+    )
+  });
 
   return (
-    <div className="birthday__today">
-      {today}
+    <div>
+    <h2>Todays Birthday</h2>
+      <div className="birthday__today">
+        {todaysBirthday}
+      </div>
     </div>
   )
 

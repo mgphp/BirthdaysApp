@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import TodaysBirthday from './components/todaysBirthday';
+import TodaysBirthdays from './components/todaysBirthday';
+import UpcomingBirthdays from './components/upcomingBirthday';
+import ListBirthday from './components/listBirthday';
+import BirthdayForm from './components/birthdayForm';
+
+import { parseTodaysDate, parseNextTwoWeeks} from './utils/dates'
 
 import BirthdayData from './data/birthdays'
 
@@ -11,26 +16,38 @@ class Main extends Component {
   constructor(props) {
     super(props);
 
+    this.addBirthday = this.addBirthday.bind(this);
+    this.removeBirthday = this.removeBirthday.bind(this);
+
+    let today = BirthdayData.filter((person) => parseTodaysDate(person.birthday) === true);
+    let nextTwoWeeks = BirthdayData.filter((person) => parseNextTwoWeeks(person.birthday) === true);
+
     this.state = {
-      todaysBirthdays: null,
-      upcomingBirthdays: [],
+      todaysBirthdays: today,
+      upcomingBirthdays: nextTwoWeeks,
       allBirthdays: BirthdayData
     }
-
   }
 
-  todaysBirthdays() {
-
+  addBirthday(birthday) {
+    this.setState({ allBirthdays: [...this.state.allBirthdays, birthday] });
   }
 
-  upcomingBirthdays() {
-
+  removeBirthday(index) {
+    console.log(index);
   }
-  
+
   render() {
     return (
-      <div>
-        <TodaysBirthday today={this.state.todaysBirthday} />
+      <div className="container">
+        <div className="col-left">
+          <TodaysBirthdays today={this.state.todaysBirthdays} />
+          <UpcomingBirthdays upcoming={this.state.upcomingBirthdays} />
+        </div>
+          <div className="col-right">
+          <ListBirthday birthdays={this.state.allBirthdays} removeBirthday={this.removeBirthday} />
+          <BirthdayForm addBirthday={this.addBirthday} />
+        </div>
       </div>
     )
   }
