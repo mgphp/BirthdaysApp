@@ -17,20 +17,24 @@ const birthdays = [
   },
   {
     "name": "Isaac Newton",
-    "birthday": "1973-05-20"
+    "birthday": "1864-04-10"
   },
   {
-    "name": "Johannes PLank",
-    "birthday": "1993-10-15"
+    "name": "Johannes Plank",
+    "birthday": "2000-04-10"
   },
   {
     "name": "John Kennedy",
-    "birthday": "1993-10-15"
+    "birthday": "1993-04-20"
   },
   {
     "name": "Winston Churchill",
     "birthday": "1874-11-30"
-  }
+  },
+  {
+    "name": "Vladimir Lenin",
+    "birthday": "1974-04-30"
+  },
 ];
 
 export default birthdays;

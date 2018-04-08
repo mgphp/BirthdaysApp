@@ -7,7 +7,7 @@ import ListBirthday from './components/listBirthday';
 import BirthdayForm from './components/birthdayForm';
 import SearchBirthdays from './components/searchBirthdays';
 
-import {parseTodaysDate, parseNextTwoWeeks, dateDiff, todaysDate} from './utils/dates';
+import {parseTodaysDate, parseNextTwoWeeks, sortedDates, todaysDate} from './utils/dates';
 
 import BirthdayData from './data/birthdays'
 
@@ -20,14 +20,7 @@ class Main extends Component {
 
     let today = BirthdayData.filter((person) => parseTodaysDate(person.birthday) === true);
     let nextTwoWeeks = BirthdayData.filter((person) => parseNextTwoWeeks(person.birthday) === true);
-    let sortDates = BirthdayData.sort(function (a, b) {
-
-      var aComps = a.birthday.split("-");
-      var bComps = b.birthday.split("-");
-      var aDate = new Date(aComps[1] + '-' + aComps[2] + '-' + aComps[0]);
-      var bDate = new Date(bComps[1] + '-' + bComps[2] + '-' + bComps[0]);
-      return aDate - bDate;
-    });
+    let sortDates = sortedDates(BirthdayData);
 
     this.state = {
       todaysBirthdays: today,
@@ -53,17 +46,18 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <div className="top-section">
-          <h1>Birthday App - {todaysDate()}</h1>
+        <div className="top__section">
+          <h1>Birthday App</h1>
+          <h2>{todaysDate()}</h2>
         </div>
         <div className="main">
           <div className="container">
-            <div className="col-left">
+            <div className="container__left">
               <TodaysBirthdays today={this.state.todaysBirthdays}/>
               <UpcomingBirthdays upcoming={this.state.upcomingBirthdays}/>
-              <SearchBirthdays />
+              <SearchBirthdays allBirthdays={this.state.allBirthdays} />
             </div>
-            <div className="col-right">
+            <div className="container__right">
               <ListBirthday birthdays={this.state.allBirthdays} removeBirthday={this.removeBirthday}/>
               <BirthdayForm addBirthday={this.addBirthday}/>
             </div>
