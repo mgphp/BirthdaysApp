@@ -1,10 +1,6 @@
-# react-webpack-babel-kit-2
-React Webpack 2.0 babel kit with bootstrap framework, babel, es2015 and sass
-
-## react-webpack-babel-kit
-React with webpack 1 is available in [tag](https://github.com/srinisoundar/react-webpack-babel-kit/tree/1.0)
-
-Compiles all the scripts & styles from `src` path to `dist`. The kit generates source maps by default in development mode.
+# Birthday app
+I have built this app with React Webpack 2.0 babel kit with, babel, es2015 and sass. I have 
+used Jest and Enzyme for testing. 
 
 ##Installation
 
@@ -33,3 +29,28 @@ To use webpack dev server & watch,
 ```
 
 Listens at **http://localhost:8080**
+
+## Technical Choices
+```bash
+  I have created 7 components and the appropriate tests to go with
+  each component.
+  
+  5 components are then imported into the main.js file.
+  
+  I have also included additional features specified. The search box and the
+  annotations. 
+  
+  The birthday list is sorted by Age.
+  
+  The search box component returns a filtered list of birthdays even new birthdays that
+  have been added by the form. (I may have misintrepreted this though as I think 
+  it may have to filter the birthday list and not return search results) 
+  
+  I have written a number of unit tests that test the individual components. If I had more 
+  time I would of made these more robust, and wrote tests for my util functions. But I just 
+  wanted to demonstrate the use of unit test. But I wanted to concnetrate on the UI and the app.
+  
+  For the UI I am using a mobile first approach and tried immitate something that resembles
+  a contraol panel. I have styled the components with flexbpx and without the use af framework.
+  
+```
