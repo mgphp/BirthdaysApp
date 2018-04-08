@@ -35,7 +35,7 @@ Listens at **http://localhost:8080**
   I have created 7 components and the appropriate tests to go with
   each component.
   
-  5 components are then imported into the main.js file.
+  5 of these components are then imported into the main.js file.
   
   I have also included additional features specified. The search box and the
   annotations. 
@@ -44,11 +44,11 @@ Listens at **http://localhost:8080**
   
   The search box component returns a filtered list of birthdays even new birthdays that
   have been added by the form. (I may have misintrepreted this though as I think 
-  it may have to filter the birthday list and not return search results) 
+  it may have to filter the birthday list and not return search results, apologies if so). 
   
   I have written a number of unit tests that test the individual components. If I had more 
-  time I would of made these more robust, and wrote tests for my util functions. But I just 
-  wanted to demonstrate the use of unit test. But I wanted to concnetrate on the UI and the app.
+  time I would make these more robust, I would also write tests for my util functions. But I just 
+  wanted to demonstrate the use of unit test and to concentrate on the UI and the app.
   
   For the UI I am using a mobile first approach and tried immitate something that resembles
   a contraol panel. I have styled the components with flexbpx and without the use af framework.
