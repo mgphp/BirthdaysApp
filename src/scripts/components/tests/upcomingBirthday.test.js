@@ -17,9 +17,9 @@ describe("<UpcomingBirthday />", () => {
     expect(component).toHaveLength(1);
   });
 
-  it('It should render a h2 tag', () => {
-    const h2 = component.find("h2");
-    expect(h2.text()).toBe('Upcoming Birthdays');
+  it('It should render a box title', () => {
+    const title = component.find(".box-title");
+    expect(title.text()).toBe('Upcoming Birthdays');
   });
 
 })
