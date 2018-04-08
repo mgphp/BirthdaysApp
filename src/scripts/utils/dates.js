@@ -19,12 +19,22 @@ export function parseTodaysDate(date) {
 }
 
 export function parseNextTwoWeeks(date) {
-  //Get the date value of next week.
   let today = new Date();
   let fortnightAway = new Date(Date.now() + 12096e5);
   let parsedDate = new Date(date);
   let updateDate = new Date(today.getFullYear() + '-' + ('0' + (parsedDate.getMonth()+1)).slice(-2)  + '-' + ('0' + parsedDate.getDate()).slice(-2));
   return Date.parse(updateDate) > Date.parse(today) && Date.parse(updateDate) < Date.parse(fortnightAway)  ? true : false;
+}
+
+export function sortedDates(data) {
+  let sortedDates = data.sort(function (a, b) {
+    var aComps = a.birthday.split("-");
+    var bComps = b.birthday.split("-");
+    var aDate = new Date(aComps[1] + '-' + aComps[2] + '-' + aComps[0]);
+    var bDate = new Date(bComps[1] + '-' + bComps[2] + '-' + bComps[0]);
+    return aDate - bDate;
+  });
+  return sortedDates;
 }
 
 export function parseDateSort(date) {
@@ -52,12 +62,13 @@ export function getAgefromDate(date) {
 
 export function dateDiff(date) {
   var parseDate;
+  var now = new Date();
   if(typeof date === 'string') {
-    var now = new Date();
     var splitStr = date.split('-');
     parseDate = now.getFullYear() + '-' + splitStr[1] + '-' + splitStr[2]
   } else {
-    parseDate = date;
+    var convertDate = new Date(date);
+    parseDate =  now.getFullYear() + '-' + convertDate.getMonth() + '-' + convertDate.getDate();
   }
 
   var timestamp = Date.parse(parseDate);
@@ -75,9 +86,9 @@ export function dateDiff(date) {
   });
 
   if(r.month >= 1) {
-    return r.month + ' Month' + (r.month > 1 ? 's' : '');
+    return `${r.month + ' Month' + (r.month > 1 ? 's' : '')} ${'away'}`;
   } else if(r.week >= 1) {
-    return r.week + ' Week' + (r.week > 1 ? 's' : '');
+    return `${r.week + ' Week' + (r.week > 1 ? 's' : '')} ${'away'}`;
   } else {
     var days;
     if (r.day == 0) {
@@ -85,7 +96,7 @@ export function dateDiff(date) {
     } else if (r.day == 1) {
        days = "Tomorrow";
     } else {
-      days = r.day + ' Day' + (r.day > 1 ? 's' : '');
+      days = r.day + ' Day' + (r.day > 1 ? 's' : '') + 'away';
     }
     return days;
   }

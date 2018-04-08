@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400');
 
+$blue: #007bff;
+$white: #fff;
+$offBlack: #515c5a;
+$grey: #ddd;
+$bg: #edf1f5;
+$red: #ff7676;
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -10,24 +17,39 @@ body, html {
   padding: 0;
 }
 
-h1, p {
+h1, h2, p {
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
-  color: #515c5a;
+h1 {
+  text-transform: uppercase;
+  margin: 10px;
+  font-size: 1.8rem;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 2.1rem
+  }
 }
 
-.top-section {
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62.5%;
+  font-weight: 500;
+  color: $offBlack;
+}
+
+.top__section {
   text-align: center;
   padding: 25px;
 }
 
 .main {
-  background: #edf1f5;
+  background: $bg;
+
+  @media only screen and (min-width: 768px) {
+    height: 100vh;
+  }
 
   .container {
     margin: auto;
@@ -35,22 +57,44 @@ body {
     max-width: 1200px;
     display: block;
 
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        cursor: pointer;
+        position: relative;
+        list-style-type: none;
+        font-size: .9rem;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 1.1rem;
+        }
+        transition: 0.2s;
+      }
+      span {
+        font-size: 0.8rem;
+        color: $blue;
+      }
+    }
+
     @media only screen and (min-width: 768px) {
       display: flex;
       padding: 0 20px;
     }
 
-    .col-left, .col-right {
+    .container__left, .container__right {
       width: 100%;
 
       @media only screen and (min-width: 768px) {
         width: 50%;
-        padding: 20px 15px
+        padding: 30px 15px 0 15px;
       }
     }
 
-    .white-box {
-      background: #fff;
+    .box__white {
+      background: $white;
       padding: 25px;
       margin-bottom: 30px;
       box-shadow: 0 0 1px 1px rgba(0,0,0,0.1);
@@ -60,26 +104,35 @@ body {
       }
 
       &.search-birthdays {
-        min-height: 270px;
+        min-height: 250px;
+      }
+
+      .box__title {
+        margin: 0 0 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+
+        @media only screen and (min-width: 768px) {
+          font-size: 1.2rem;
+        }
+        font-size: .9rem;
       }
     }
 
-    .box-title {
-      margin: 0 0 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      font-size: 1.2rem;
-    }
-
     .birthday__today, .birthday__upcoming {
-      background-color: #fff;
+      background-color: $white;
+      font-size: .9rem;
     }
 
     .upcoming__birthday {
 
       .upcoming__item {
         padding: 10px 0;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid $grey;
+
+        .upcoming__name {
+          font-size: 1rem;
+        }
 
         &:first-of-type {
           padding: 0px 0px 10px 0;
@@ -87,7 +140,7 @@ body {
 
         span {
           font-size: 0.8rem;
-          color: #007bff;
+          color: $blue;
         }
       }
     }
@@ -100,36 +153,29 @@ body {
       padding: 5px 15px;
       margin-bottom: 7px;
       background-color: #f3f3f3;
-      border: 1px solid #ddd;
+      border: 1px solid $grey;
 
       .birthdays__item--group {
         label {
           width: 100%;
           display: inline-block;
-          font-size: 1.1rem;
+          font-size: .9rem;
+
+          @media only screen and (min-width: 768px) {
+            font-size: 1.1rem;
+          }
         }
+
         span {
           font-size: 0.8rem;
-          color: #007bff;
+          color: $blue;
         }
       }
     }
   }
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
 
-  li {
-    cursor: pointer;
-    position: relative;
-    list-style-type: none;
-    font-size: 1.14rem;
-    transition: 0.2s;
-  }
-}
 
 input {
   background: #fff;
@@ -140,7 +186,7 @@ input {
   padding: 10px 15px;
   outline: none;
   font-family: inherit;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   width: 90%;
   margin-bottom: 10px;
 }
@@ -157,7 +203,7 @@ button {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: .8rem;
   font-weight: 400;
   line-height: 1.42857143;
   text-align: center;
@@ -170,8 +216,8 @@ button {
   border: 1px solid transparent;
   border-radius: 4px;
   color: #fff;
-  background: #ff7676;
-  border: 1px solid #ff7676;
+  background: $red;
+  border: 1px solid $red;
 }
 
 .close {
