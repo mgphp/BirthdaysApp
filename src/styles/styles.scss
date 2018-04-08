@@ -1,7 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400');
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: #f8f9fa !important;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  color: #515c5a;
 }
-#react-container {
-  display:flex;
-  justify-content: center;
+
+.top-section {
+  text-align: center;
+  padding: 25px;
 }
+
+.main {
+  background: #edf1f5;
+
+  .container {
+    margin: auto;
+    padding: 20px;
+    max-width: 1200px;
+    display: block;
+
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      padding: 0 20px;
+    }
+
+    .col-left, .col-right {
+      width: 100%;
+
+      @media only screen and (min-width: 768px) {
+        width: 50%;
+        padding: 20px 15px
+      }
+    }
+
+    .white-box {
+      background: #fff;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 1px 1px rgba(0,0,0,0.1);
+
+      &.all-birthdays {
+        min-height: 650px;
+      }
+
+      &.search-birthdays {
+        min-height: 270px;
+      }
+    }
+
+    .box-title {
+      margin: 0 0 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+    }
+
+    .birthday__today, .birthday__upcoming {
+      background-color: #fff;
+    }
+
+    .upcoming__birthday {
+
+      .upcoming__item {
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+
+        &:first-of-type {
+          padding: 0px 0px 10px 0;
+        }
+
+        span {
+          font-size: 0.8rem;
+          color: #007bff;
+        }
+      }
+    }
+
+    .birthdays__item {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5px 15px;
+      margin-bottom: 7px;
+      background-color: #f3f3f3;
+      border: 1px solid #ddd;
+
+      .birthdays__item--group {
+        label {
+          width: 100%;
+          display: inline-block;
+          font-size: 1.1rem;
+        }
+        span {
+          font-size: 0.8rem;
+          color: #007bff;
+        }
+      }
+    }
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    cursor: pointer;
+    position: relative;
+    list-style-type: none;
+    font-size: 1.14rem;
+    transition: 0.2s;
+  }
+}
+
+input {
+  background: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  border: 1px solid #d7d7e7;
+  font-size: 18px;
+  padding: 10px 15px;
+  outline: none;
+  font-family: inherit;
+  color: rgba(0, 0, 0, 0.8);
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+button.close {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background: #ff7676;
+  border: 1px solid #ff7676;
+}
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .5;
+}
+
