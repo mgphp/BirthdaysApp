@@ -1,38 +1,55 @@
-/**
- * Created by markgr on 06/04/2018.
- */
 import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
-//import 'react-datepicker/dist/react-datepicker.css';
-import BirthdayListItem from './listBirthdayItem';
-
-class BirthdayForm extends React.Component {
+class BirthdayForm extends Component {
   constructor(props) {
-    // Pass props to parent class
     super(props);
-    // Set initial state
+    this.state = {
+      startDate: moment()
+    };
+
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
     let name = this.refs.name.value;
-    let dob = this.refs.dob.value;
-    this.props.addBirthday({name,dob})
-
+    let birthday = this.state.startDate._d;
+    this.props.addBirthday({name, birthday})
     this.refs.birthdayForm.reset();
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
   render() {
     return (
-      <div>
-        <h2>Add Birthday</h2>
+      <div className="white-box">
+        <div className="box-title">Add Birthday</div>
         <form className="add-remove" ref="birthdayForm" onSubmit={this.onSubmit}>
-         <input type="input"  placeholder="Enter name" ref="name" className="form-item"/><br/>
-         <DatePicker //selected={this.state.startDate} // onChange={this.handleChange}
-           /><br/>
+          <input
+            type="input"
+            placeholder="Enter name"
+            name="name"
+            ref="name"
+            required
+            className="form-item"/>
+          <br />
+          <div className="error" id="usernameError"/>
+          <DatePicker
+            name="birthday"
+            placeholder="Enter name"
+            dateFormat="DD-MM-YYYY"
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+            required
+          />
+
           <button>Add Birthday</button>
         </form>
       </div>

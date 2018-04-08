@@ -51,9 +51,16 @@ export function getAgefromDate(date) {
 }
 
 export function dateDiff(date) {
-  var now = new Date();
-  var splitStr = date.split('-');
-  var timestamp = Date.parse(now.getFullYear() + '-' + splitStr[1] + '-' + splitStr[2]);
+  var parseDate;
+  if(typeof date === 'string') {
+    var now = new Date();
+    var splitStr = date.split('-');
+    parseDate = now.getFullYear() + '-' + splitStr[1] + '-' + splitStr[2]
+  } else {
+    parseDate = date;
+  }
+
+  var timestamp = Date.parse(parseDate);
   var d = Math.abs(timestamp - new Date().getTime()) / 1000;
   var r = {};
   var s = {

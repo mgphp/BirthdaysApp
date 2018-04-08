@@ -11,11 +11,13 @@ class BirthdayList extends React.Component {
     })
 
     return (
-      <div className="birthdays__list">
-        <h2>All Birthdays</h2>
-        <ul>
-          {birthdays}
-        </ul>
+      <div className="white-box all-birthdays">
+        <div className="birthdays__list">
+          <div className="box-title">All Birthdays</div>
+          <ul>
+            {birthdays}
+          </ul>
+        </div>
       </div>
     )
   }

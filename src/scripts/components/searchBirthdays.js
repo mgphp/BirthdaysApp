@@ -47,7 +47,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="white-box">
+      <div className="white-box search-birthdays">
         <div className="box-title">Search Birthdays</div>
         <form>
           <input
