@@ -18,8 +18,8 @@ describe("<UpcomingBirthday />", () => {
   });
 
   it('It should render a box title', () => {
-    const title = component.find(".box-title");
-    expect(title.text()).toBe('Upcoming Birthdays');
+    const title = component.find(".box__title");
+    expect(title.text()).toBe('Upcoming Birthdays (Next 2 weeks)');
   });
 
 })

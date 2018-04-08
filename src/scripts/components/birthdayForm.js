@@ -6,7 +6,8 @@ class BirthdayForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: moment()
+      startDate: moment(),
+      name: ''
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -29,8 +30,8 @@ class BirthdayForm extends Component {
 
   render() {
     return (
-      <div className="white-box">
-        <div className="box-title">Add Birthday</div>
+      <div className="box__white">
+        <div className="box__title">Add Birthday</div>
         <form className="add-remove" ref="birthdayForm" onSubmit={this.onSubmit}>
           <input
             type="input"

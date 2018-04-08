@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
 import Suggestions from './suggestions'
-import BirthdayData from '../data/birthdays'
 
 class Search extends Component {
 
@@ -17,8 +15,7 @@ class Search extends Component {
   }
 
   getInfo(){
-
-    let filteredData = BirthdayData.filter(birthday => {
+    let filteredData = this.props.allBirthdays.filter(birthday => {
      const regex = new RegExp(this.state.query, 'gi');
      return birthday.name.match(regex);
     });
@@ -47,8 +44,8 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="white-box search-birthdays">
-        <div className="box-title">Search Birthdays</div>
+      <div className="box__white search-birthdays">
+        <div className="box__title">Search Birthdays</div>
         <form>
           <input
             placeholder="Search for..."

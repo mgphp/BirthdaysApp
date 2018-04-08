@@ -34,14 +34,14 @@ describe('<BirthdayForm />', () => {
 
   it('should update the state when a value is input', () => {
     const name = 'Abraham Lincoln';
-    const input = component.find('form').childAt(1);
+    const input = component.find('.form-item');
     input.simulate('change', {
       target: {
         name: 'name',
         value: name,
       }
     });
-    expect(component.state()).toExist();
+    expect(component.state().name).toBe(name);
   });
 
 })

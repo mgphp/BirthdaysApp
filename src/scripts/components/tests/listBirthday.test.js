@@ -12,7 +12,7 @@ describe('<ListBirthday />', () => {
   });
 
   it('It should render a box title', () => {
-    const title = component.find(".box-title");
+    const title = component.find(".box__title");
     expect(title.text()).toBe('All Birthdays');
   });
 
