@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Suggestions from './suggestions'
 
-class Search extends Component {
+class Search extends React.Component {
 
   constructor(props) {
     super(props);
@@ -26,7 +26,6 @@ class Search extends Component {
   }
 
   handleInputChange(){
-
     this.setState({
       query: this.search.value
     }, () => {

@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
-class BirthdayForm extends Component {
+class BirthdayForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +51,6 @@ class BirthdayForm extends Component {
             onChange={this.handleChange}
             required
           />
-
           <button>Add Birthday</button>
         </form>
       </div>
