@@ -51,6 +51,6 @@ Listens at **http://localhost:8080**
   wanted to demonstrate the use of unit test and to concentrate on the UI and the app.
   
   For the UI I am using a mobile first approach and tried immitate something that resembles
-  a contraol panel. I have styled the components with flexbpx and without the use af framework.
+  a control panel. I have styled the components with flexbox and without the use of a framework.
   
 ```
