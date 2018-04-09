@@ -1,7 +1,10 @@
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
-
+/**
+ * Returns todays date with ordinality
+ * @returns {string}
+ */
 export function todaysDate() {
   var date = new Date();
   var locale = "en-us";
@@ -10,22 +13,37 @@ export function todaysDate() {
   return `${n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '')} ${month} ${date.getFullYear()}`;
 }
 
+/**
+ * Checks to see if todays if date is today
+ * @param date
+ * @returns {boolean}
+ */
 export function parseTodaysDate(date) {
-  let birthdayDate = new Date(date);
-  let birthday = birthdayDate.getDate() + '' + birthdayDate.getMonth();
-  let todaysDate = new Date();
-  let today = todaysDate.getDate() + '' + todaysDate.getMonth();
+  var birthdayDate = new Date(date);
+  var birthday = birthdayDate.getDate() + '' + birthdayDate.getMonth();
+  var todaysDate = new Date();
+  var today = todaysDate.getDate() + '' + todaysDate.getMonth();
   return birthday === today ? true : false;
 }
 
+/**
+ * Check whether dates fall between the next 2 weeks
+ * @param date
+ * @returns {boolean}
+ */
 export function parseNextTwoWeeks(date) {
-  let today = new Date();
-  let fortnightAway = new Date(Date.now() + 12096e5);
-  let parsedDate = new Date(date);
-  let updateDate = new Date(today.getFullYear() + '-' + ('0' + (parsedDate.getMonth()+1)).slice(-2)  + '-' + ('0' + parsedDate.getDate()).slice(-2));
+  var today = new Date();
+  var fortnightAway = new Date(Date.now() + 12096e5);
+  var parsedDate = new Date(date);
+  var updateDate = new Date(today.getFullYear() + '-' + ('0' + (parsedDate.getMonth()+1)).slice(-2)  + '-' + ('0' + parsedDate.getDate()).slice(-2));
   return Date.parse(updateDate) > Date.parse(today) && Date.parse(updateDate) < Date.parse(fortnightAway)  ? true : false;
 }
 
+/**
+ * Sorts dates by oldest person
+ * @param data
+ * @returns {void|*|Array.<T>}
+ */
 export function sortedDates(data) {
   let sortedDates = data.sort(function (a, b) {
     var aComps = a.birthday.split("-");
@@ -37,16 +55,12 @@ export function sortedDates(data) {
   return sortedDates;
 }
 
-export function parseDateSort(date) {
-  dateStrings.sort(function(a,b) {
-    var aComps = a.split("/");
-    var bComps = b.split("/");
-    var aDate = new Date(aComps[2], aComps[1], aComps[0]);
-    var bDate = new Date(bComps[2], bComps[1], bComps[0]);
-    return aDate.getTime() - bDate.getTime();
-  });
-}
-
+/**
+ * Converts date string to more freindly date str
+ * @param date
+ * @param showYear
+ * @returns {string}
+ */
 export function parseDateStr(date,showYear) {
   var date = new Date(date);
   var locale = "en-us";
@@ -55,11 +69,21 @@ export function parseDateStr(date,showYear) {
   return `${n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '')} ${month} ${showYear === true ? date.getFullYear() : ''}`;
 }
 
+/**
+ * Gets age from birthday
+ * @param date
+ * @returns {number}
+ */
 export function getAgefromDate(date) {
   var birthday = +new Date(date);
   return ~~((Date.now() - birthday) / (31557600000));
 }
 
+/**
+ * Works out the day/weeks/months difference from todays dare
+ * @param date
+ * @returns {*}
+ */
 export function dateDiff(date) {
   var parseDate;
   var now = new Date();
@@ -88,7 +112,7 @@ export function dateDiff(date) {
   if(r.month >= 1) {
     return `${r.month + ' Month' + (r.month > 1 ? 's' : '')} ${'away'}`;
   } else if(r.week >= 1) {
-    return `${r.week + ' Week' + (r.week > 1 ? 's' : '')} ${'away'}`;
+    return `${r.week}  ${'Week'}${(r.week > 1 ? 's' : '')} ${'away'}`;
   } else {
     var days;
     if (r.day == 0) {
@@ -96,7 +120,7 @@ export function dateDiff(date) {
     } else if (r.day == 1) {
        days = "Tomorrow";
     } else {
-      days = r.day + ' Day' + (r.day > 1 ? 's' : '') + 'away';
+      days = `${r.day} ${'Day'}${(r.day > 1 ? 's' : '')} ${'away'}`;
     }
     return days;
   }

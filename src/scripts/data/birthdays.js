@@ -17,11 +17,11 @@ const birthdays = [
   },
   {
     "name": "Isaac Newton",
-    "birthday": "1864-04-10"
+    "birthday": "1864-04-12"
   },
   {
     "name": "Johannes Plank",
-    "birthday": "2000-04-10"
+    "birthday": "2000-04-09"
   },
   {
     "name": "John Kennedy",
