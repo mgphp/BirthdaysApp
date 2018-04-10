@@ -6,6 +6,7 @@ $offBlack: #515c5a;
 $grey: #ddd;
 $bg: #edf1f5;
 $red: #ff7676;
+$top: #35354c;
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -41,7 +42,10 @@ body {
 
 .top__section {
   text-align: center;
-  padding: 25px;
+  padding: 15px;
+  background-color: $top;
+  color: white;
+
 }
 
 .main {
