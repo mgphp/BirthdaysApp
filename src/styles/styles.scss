@@ -40,20 +40,19 @@ body {
   color: $offBlack;
 }
 
-.top__section {
+header {
   text-align: center;
   padding: 15px;
   background-color: $top;
   color: white;
-
 }
 
-.main {
+main {
   background: $bg;
 
-  @media only screen and (min-width: 768px) {
-    height: 100vh;
-  }
+  // @media only screen and (min-width: 768px) {
+  //   height: 100vh;
+  // }
 
   .container {
     margin: auto;

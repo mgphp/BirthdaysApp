@@ -4,9 +4,9 @@ import BirthdayListItem from './listBirthdayItem'
 class BirthdayList extends React.Component {
 
   render () {
-    const birthdays = this.props.birthdays.map((birthday, index) => {
+    const birthdays = this.props.birthdays.map((birthday, i) => {
       return (
-        <BirthdayListItem birthday={birthday} key={index} removeBirthday={this.props.removeBirthday} />
+        <BirthdayListItem birthday={birthday} key={`item-${i}`} removeBirthday={this.props.removeBirthday} />
       );
     })
 

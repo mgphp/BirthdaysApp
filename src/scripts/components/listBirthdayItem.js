@@ -7,9 +7,9 @@ class listBirthdayItem extends React.Component {
     this.onClickRemove = this.onClickRemove.bind(this);
   }
 
-  onClickRemove() {
+  onClickRemove(id) {
     let name = this.props.birthday.name;
-    this.props.removeBirthday(name);
+    this.props.removeBirthday(id);
   }
 
   render () {
@@ -19,7 +19,7 @@ class listBirthdayItem extends React.Component {
           <label htmlFor={this.props.birthday.name}>{this.props.birthday.name} - {parseDateStr(this.props.birthday.birthday,true)}</label>
           <span>{dateDiff(this.props.birthday.birthday)}</span>
         </div>
-        <button type="button" key={this.props.birthday.index} className="close" onClick={this.onClickRemove}>&times;</button>
+        <button type="button" className="close" onClick={() => this.onClickRemove(this.props.birthday)}>&times;</button>
       </li>
     );
   }

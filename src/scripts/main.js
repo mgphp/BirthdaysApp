@@ -37,8 +37,8 @@ class Main extends Component {
   }
 
   removeBirthday(name) {
-    var arr = this.state.allBirthdays;
-    var index = arr.indexOf(name)
+    const arr = this.state.allBirthdays;
+    const index = arr.indexOf(name);
     arr.splice(index, 1);
     this.setState({allBirthdays: arr });
   }
@@ -46,23 +46,23 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <div className="top__section">
+        <header>
           <h1>Birthday App</h1>
           <h2>{todaysDate()}</h2>
-        </div>
-        <div className="main">
+        </header>
+        <main>
           <div className="container">
-            <div className="container__left">
+            <section className="container__left">
               <TodaysBirthdays today={this.state.todaysBirthdays}/>
               <UpcomingBirthdays upcoming={this.state.upcomingBirthdays}/>
               <SearchBirthdays allBirthdays={this.state.allBirthdays} />
-            </div>
-            <div className="container__right">
+            </section>
+            <section className="container__right">
               <ListBirthday birthdays={this.state.allBirthdays} removeBirthday={this.removeBirthday}/>
               <BirthdayForm addBirthday={this.addBirthday}/>
-            </div>
+            </section>
           </div>
-        </div>
+        </main>
       </div>
     )
   }
